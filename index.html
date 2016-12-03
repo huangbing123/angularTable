@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" ng-app="APP">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div ng-controller="myCtrl" class="box">
+        <input type="text" ng-model="sou">
+        <table border="1px">
+            <tr>
+                <td ng-click="one('name')">FirstName</td>
+                <td ng-click="one('names')">LastName</td>
+                <td ng-click="one('spice')">Salary</td>
+                <td ng-click="four('spice')">Salary</td>
+                <td ng-click="two('time')">Birthday</td>
+            </tr>
+            <tr ng-repeat="i in table | filter:sou | orderBy:sort ">
+                <td>{{i.name}}</td>
+                <td>{{i.names}}</td>
+                <td>{{i.number}}</td>
+                <td>{{i.spice | currency:"￥"}}</td>
+                <td>{{i.time | date:"yyyy-MM-dd"}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script src="js/angular.min.js"></script>
+<script src="js/index.js"></script>
+</html>
